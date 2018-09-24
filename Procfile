@@ -1,0 +1,1 @@
+web: gunicorn ucu_book_sharing.wsgi
