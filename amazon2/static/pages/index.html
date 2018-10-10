@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+  <title>Amazon 2: Electric Bookaloo</title>
+  <link rel='stylesheet' href='../libs/bootstrap4.1/css/bootstrap.css'>
+  <link rel='stylesheet' href='../libs/custom/css/custom.css'>
+  <script defer src='../libs/jquery3.3.1/jquery-3.3.1.min.js'></script>
+  <script defer src='../libs/bootstrap4.1/js/bootstrap.js'></script>
+  <script defer src='../libs/custom/js/custom.js'></script>
+</head>
+
+<body>
+  <div class='center'>
+    <button type='button' class='btn btn-warning' data-toggle='modal' data-target='#exampleModal'>Open Modal</button>
+  </div>
+  <!--
+    TODO:
+        * Hacer que sea como en el mockup -> https://ninjamock.com/Designer/Workplace/64131376/Calificaciondeunlibro12
+        * Centrar el modal en el medio de la pantalla.
+        * Agregar las estrellas para asignar una calificación.
+        * Hacer que al apretar un boton cambie a agregar un comentario. -> https://ninjamock.com/Designer/Workplace/64131376/Calificaciondeunlibro22
+        * Que cuando termine le mande las cosas al backend.
+        * Si vamos a poder puntuar usuarios, hacer lo mismo pero para un usuario.
+-->
+  <!-- Modal -->
+  <div class='modal fade' id='exampleModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+    <div class='modal-dialog' role='document'>
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <h5 class='modal-title' id='exampleModalLabel'>Rate this book</h5>
+        </div>
+        <div class='modal-body'>
+          <h6>Book title</h6>
+          <div id='stars'>
+            <img src='../icons/star_empty.png' alt='Star' class='star empty' id='star1'>
+            <img src='../icons/star_empty.png' alt='Star' class='star empty' id='star2'>
+            <img src='../icons/star_empty.png' alt='Star' class='star empty' id='star3'>
+            <img src='../icons/star_empty.png' alt='Star' class='star empty' id='star4'>
+            <img src='../icons/star_empty.png' alt='Star' class='star empty' id='star5'>
+          </div>
+          <textarea></textarea>
+        </div>
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-primary' onclick="rateBook()" id='rate' disabled>Rate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

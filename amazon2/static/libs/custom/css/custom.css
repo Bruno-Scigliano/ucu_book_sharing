@@ -1,6 +1,57 @@
 .center {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.modal-header,
+.modal-content,
+.stars {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  padding: 0;
+}
+
+.modal-footer,
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+textarea {
+  width: 90%;
+  height: 100px;
+  margin: 14px 0px 0;
+  /* resize: none; */
+}
+
+.star {
+  height: 20px;
+  width: 20px;
+  margin: 0px 2px;
 }
