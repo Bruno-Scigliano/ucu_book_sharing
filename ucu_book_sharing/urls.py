@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     url(r'^books/(?P<id>\d+)$', views.description, name='description'),
+    url('myBooks/', views.myBooks, name='myBooks')
 ]
