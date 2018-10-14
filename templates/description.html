@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Books</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel='stylesheet' href='{% static "libs/custom/css/shop-item.css" %}'>
+    <link rel='stylesheet' href='{% static "libs/bootstrap/css/bootstrap.min.css" %}'>
+    <link rel='stylesheet' href='{% static "libs/custom/css/custom.css" %}'>
+    <!-- Custom styles for this template -->
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/"> <img class="card-img-top logoImg" src='{% static "img/logo.png" %}' alt="Pet Sematary"></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Jumbotron Header -->
+          <div class="container">
+              <div class="row">    
+                  <div class="col-md-12 col-xs-offset-2">
+                  <div class="input-group">
+                          <div class="input-group-btn search-panel">
+                              <button type="button" class="flatRightButton btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                                <span id="search_concept">Filter by</span> <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a class="dropdown-item" href="#">Book</a></li>
+                                <li><a class="dropdown-item" href="#">Author</a></li>
+                                <li><a class="dropdown-item" href="#">Science fiction</a></li>
+                                <li><a class="dropdown-item" href="#">Fantasy</a></li>
+                                <li><a class="dropdown-item" href="#">Drama</a></li>
+                                <li><a class="dropdown-item" href="#">Action and Adventure</a></li>
+                                <li><a class="dropdown-item" href="#">Romance</a></li>
+                                <li><a class="dropdown-item" href="#">Mystery</a></li>
+                                <li><a class="dropdown-item" href="#">Horror</a></li>
+                                <li><a class="dropdown-item" href="#">Health</a></li>
+                                <li><a class="dropdown-item" href="#">Children’s</a></li>
+                                <li><a class="dropdown-item" href="#">Religion, Spirituality & New Age</a></li>
+                                <li><a class="dropdown-item" href="#">Science</a></li>
+                                <li><a class="dropdown-item" href="#">History</a></li>
+                                <li><a class="dropdown-item" href="#">Comics</a></li>
+                                <li><a class="dropdown-item" href="#">Biographies</a></li>
+                              </ul>
+                          </div>
+                          <input type="hidden" name="search_param" value="all" id="search_param">         
+                          <input type="text" class="form-control" name="x" placeholder="Find a Book...">
+                          <span class="input-group-btn">
+                              <button class="flatLeftButton btn btn-warning" type="button"><img src='{% static "icons/magnifier.png" %}'><span class="glyphicon glyphicon-search"></span></button>
+                          </span>
+                      </div>
+                  </div>
+            </div>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Rentals</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container page-content">
+
+      <div class="row">
+        <div class="col-lg-3 page-content">
+          <img class="card-img-top img-fluid" src='{% static "img/book_1.jpg" %}' alt="Book cover">
+          <hr>
+          <a href="#" class="btn btn-primary" style="display: flex; justify-content: center;">Request book</a>
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+          <div class="card mt-4">
+            <div class="card-body">
+              <h3 class="card-title" style="display: inline;">{{ book_title }}</h3>
+              <h6 style="margin-top: 10px;">Owner: <a href="">{{ owner_name }}</a> </h5>
+              <hr>
+              <h6>Summary</h6>
+              <p class="card-text">{{ book_description }}</p>
+            </div>
+          </div>
+          <!-- /.card -->
+
+          <div class="card card-outline-secondary my-4">
+            <div class="card-header">
+              Product Reviews
+            </div>
+            <div class="card-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+              <hr>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+              <hr>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+              <hr>
+              <a href="#" class="btn btn-success">Leave a Review</a>
+            </div>
+          </div>
+          <!-- /.card -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; UCU 2018 </p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <h1 id='book-condition' hidden>{{ book_condition }}</h1>
+    <h1 id='book-rating' hidden>{{ book_rating }}</h1>
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src='{% static "libs/jquery/jquery.min.js" %}'></script>
+    <script src='{% static "libs/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+    <script src='{% static "libs/custom/js/custom.js" %}'></script>
+    <script src='{% static "libs/custom/js/description.js" %}'></script>
+  </body>
+
+</html>
