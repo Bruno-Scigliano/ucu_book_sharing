@@ -96,33 +96,43 @@
       </h1>
   
         <!-- Project Two -->
-        <div class="row cardContainer">
-          <div class="col-md-3">
-            <a href="#">
-              <img class="img-fluid rounded mb-3 mb-md-0 center" src="https://files.slack.com/files-pri/TC5DZKVAL-FDCU284GG/book_1.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-5">
-            <h2>Pet Sematary</h2>
-            <div class="row starsContainer">
-                <span class="text-warning">
-                    <font size="6">&#9733; &#9733; &#9733; &#9733; &#9734;</font>
-                </span>
-            </div>
-            <p>Sometimes dead is better....When the Creeds move into a beautiful old house in rural Maine, it all seems too good to be true: physician father, beautiful wife, charming little daughter, adorable infant son -- and now an idyllic home. As a family, they've got it all...right down to the friendly cat. But the nearby woods hide a blood-chilling truth -- more terrifying than death itself...and hideously more powerful.</p>
-          </div > 
-          <div class="rightContainer>
-              <div class="center">
-                <button type="button" class="btn btn-primary btn-lg button">View</button>
-                <button type="button" class="btn btn-danger btn-lg button">Delete</button>
+        {% load app_customs %}
+        {% for book in myBooks %}
+            <div class="row cardContainer">
+              <div class="col-md-3">
+                <a href="#">
+                  <img class="img-fluid rounded mb-3 mb-md-0 center" src="{{ book.cover.url }}" alt="">
+                </a>
               </div>
-          </div>
-          
-          </div>
-        <!-- /.row -->
-  
-        <hr>
+              <div class="col-md-5">
+                <h2>{{ book.title }}</h2>
+                <div class="row starsContainer">
+                    {% for i in stars %}
+                        {% if i <= ratings|get_item:book.book_id  %}
+                            <span class="text-warning">
+                                <span style="font-size: x-large; ">&#9733; </span>
+                            </span>
+                        {% else %}
+                            <span class="text-warning">
+                                <span style="font-size: x-large; ">&#9734; </span>
+                            </span>
+                        {% endif %}
+                    {% endfor %}    
+                </div>
+                <p>{{book.description}}</p>
+              </div >
+              <div class="rightContainer">
+                  <div class="center">
+                    <a href="{% url 'description' book.book_id %}" class="btn btn-primary btn-lg button">View</a>
+                    <button type="button" class="btn btn-danger btn-lg button">Delete</button>
+                  </div>
+              </div>
 
+              </div>
+            <!-- /.row -->
+
+            <hr>
+        {% endfor %}
         
       <!-- Pagination -->
       <ul class="pagination justify-content-center">

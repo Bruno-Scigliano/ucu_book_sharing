@@ -89,7 +89,7 @@
 
       <div class="row">
         <div class="col-lg-3 page-content">
-          <img class="card-img-top img-fluid" src='{% static "img/book_1.jpg" %}' alt="Book cover">
+          <img class="card-img-top img-fluid" src='{{ book.cover.url }}' alt="Book cover">
           <hr>
           <a href="#" class="btn btn-primary" style="display: flex; justify-content: center;">Request book</a>
         </div>
@@ -99,11 +99,11 @@
 
           <div class="card mt-4">
             <div class="card-body">
-              <h3 class="card-title" style="display: inline;">{{ book_title }}</h3>
-              <h6 style="margin-top: 10px;">Owner: <a href="">{{ owner_name }}</a> </h5>
+              <h3 class="card-title" style="display: inline;">{{ book.title }}</h3>
+              <h6 style="margin-top: 10px;">Owner: <a href="">{{ book.owner.name }}</a> </h5>
               <hr>
               <h6>Summary</h6>
-              <p class="card-text">{{ book_description }}</p>
+              <p class="card-text">{{ book.description }}</p>
             </div>
           </div>
           <!-- /.card -->

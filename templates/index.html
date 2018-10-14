@@ -98,52 +98,52 @@
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src='{% static "img/book_1.jpg" %}' alt="Pet Sematary">
+            <img class="card-img-top" src="{{ botd.cover.url }}" alt="Pet Sematary">
             <div class="card-body">
               <h4 class="card-title">Book of the Day</h4>
-              <p class="card-text tripleDotLong">Louis Creed, a doctor from Chicago, is appointed director of the University of Maine's campus health service. He moves to a large house near the small town of Ludlow with his wife Rachel, their two young children, Ellie and Gage, and Ellie's cat, Church. From the moment they arrive, the family runs into trouble: Ellie hurts her knee after falling off a swing, and Gage is stung by a bee. Their new neighbor, an elderly man named Jud Crandall, comes to help. He warns Louis and Rachel about the highway that runs past their house; it is constantly used by speeding trucks.</p>
+              <p class="card-text tripleDotLong">{{ botd.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-warning">Find Out More!</a>
+              <a href="{% url 'description' botd.book_id %}" class="btn btn-warning">Find Out More!</a>
             </div>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src='{% static "img/book_2.jpg" %}' alt="The Rings of Saturn">
+            <img class="card-img-top" src='{{ recomended.cover.url }}' alt="The Rings of Saturn">
             <div class="card-body">
               <h4 class="card-title">Recomended</h4>
-              <p class="card-text tripleDotLong">Lucky Starr and the Rings of Saturn is the final novel in the Lucky Starr series, six juvenile science fiction novels by Isaac that originally appeared under the pseudonym Paul French. The novel was first published by Doubleday & Company in 1958</p>
+              <p class="card-text tripleDotLong">{{ recomended.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-warning">Find Out More!</a>
+              <a href="{% url 'description' bur.book_id %}" class="btn btn-warning">Find Out More!</a>
             </div>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src='{% static "img/book_3.jpg" %}' alt="Dragons of Eden">
+            <img class="card-img-top" src='{{ trending.cover.url }}' alt="Dragons of Eden">
             <div class="card-body">
               <h4 class="card-title">Trending</h4>
-              <p class="card-text tripleDotLong">The Dragons of Eden: Speculations on the Evolution of Human Intelligence is a 1977 book by Carl Sagan, in which the author combines the fields of anthropology, evolutionary biology, psychology, and computer science to give a perspective on how human intelligence may have evolved</p>
+              <p class="card-text tripleDotLong">{{ trending.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-warning">Find Out More!</a>
+              <a href="{% url 'description' trending.book_id %}" class="btn btn-warning">Find Out More!</a>
             </div>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src='{% static "img/book_4.jpg" %}' alt="Bleeding Blue and Gray">
+            <img class="card-img-top" src='{{ bur.cover.url }}' alt="Bleeding Blue and Gray">
             <div class="card-body">
-              <h4 class="card-title">Because you read</h4><h6 class="card-title">This Is Going to Hurt</h6>
-              <p class="card-text tripleDotShort">A landmark chronicle of Civil War medicine, Bleeding Blue and Gray is a major contribution to our understanding of America’s bloodiest conflict. Indeed, eminent surgeon and medical historian Ira M. Rutkow argues that it is impossible to grasp the harsh realities of the Civil War withou</p>
+              <h4 class="card-title">Because you read</h4><h6 class="card-title">{{ burThis }}</h6>
+              <p class="card-text tripleDotShort">{{ bur.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-warning">Find Out More!</a>
+              <a href="{% url 'description' bur.book_id %}" class="btn btn-warning">Find Out More!</a>
             </div>
           </div>
         </div>
