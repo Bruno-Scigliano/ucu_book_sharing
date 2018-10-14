@@ -1,0 +1,38 @@
+.tripleDotLong {
+    text-align: justify;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+.tripleDotShort {
+    text-align: justify;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.centerText {
+text-align: center; 
+}
+.flatRightButton {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.flatLeftButton {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.logoImg {
+    display: block;
+    max-width:230px;
+    max-height:95px;
+    width: auto;
+    height: auto;
+}
+
+.page-content {
+  margin-top: 40px;
+}
+
