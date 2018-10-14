@@ -14,28 +14,9 @@
     <!-- Bootstrap core CSS -->
     <link rel='stylesheet' href='{% static "libs/custom/css/heroic-features.css" %}'>
     <link rel='stylesheet' href='{% static "libs/bootstrap/css/bootstrap.min.css" %}'>
+    <link rel='stylesheet' href='{% static "libs/custom/css/custom.css" %}'>
 
   </head>
-  <style>
-    .tripleDot {
-      text-align: justify;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 5;
-      -webkit-box-orient: vertical;
-    }
-    .centerText {
-      text-align: center;
-    }
-    .flatRightButton {
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
-    }
-
-    .flatLeftButton {
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
-    }
     .logoImg {
       display: block;
       max-width:230px;
@@ -43,8 +24,6 @@
       width: auto;
       height: auto;
     }
-
-  </style>
   <body>
 
     <!-- Navigation -->
@@ -66,7 +45,7 @@
               <a class="nav-link" href="#">My Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Rented Books</a>
+              <a class="nav-link" href="#">Rentals</a>
             </li>
           </ul>
         </div>
@@ -80,7 +59,6 @@
       <header class="jumbotron my-4">
         <h1 class="display-3 centerText">Welcome USERNAME!</h1>
         <p class="lead centerText">More Than 750,948 Books Over Here.</p>
-
         <div class="container">
             <div class="row">    
                 <div class="col-md-12 col-xs-offset-2">
@@ -93,6 +71,7 @@
                               <li><a class="dropdown-item" href="#">Book</a></li>
                               <li><a class="dropdown-item" href="#">Author</a></li>
                               <li><a class="dropdown-item" href="#">Science fiction</a></li>
+                              <li><a class="dropdown-item" href="#">Fantasy</a></li>
                               <li><a class="dropdown-item" href="#">Drama</a></li>
                               <li><a class="dropdown-item" href="#">Action and Adventure</a></li>
                               <li><a class="dropdown-item" href="#">Romance</a></li>
@@ -105,7 +84,6 @@
                               <li><a class="dropdown-item" href="#">History</a></li>
                               <li><a class="dropdown-item" href="#">Comics</a></li>
                               <li><a class="dropdown-item" href="#">Biographies</a></li>
-                              <li><a class="dropdown-item" href="#">Fantasy</a></li>
                             </ul>
                         </div>
                         <input type="hidden" name="search_param" value="all" id="search_param">         
@@ -130,7 +108,7 @@
             <img class="card-img-top" src='{% static "img/book_1.jpg" %}' alt="Pet Sematary">
             <div class="card-body">
               <h4 class="card-title">Book of the Day</h4>
-              <p class="card-text tripleDot">Louis Creed, a doctor from Chicago, is appointed director of the University of Maine's campus health service. He moves to a large house near the small town of Ludlow with his wife Rachel, their two young children, Ellie and Gage, and Ellie's cat, Church. From the moment they arrive, the family runs into trouble: Ellie hurts her knee after falling off a swing, and Gage is stung by a bee. Their new neighbor, an elderly man named Jud Crandall, comes to help. He warns Louis and Rachel about the highway that runs past their house; it is constantly used by speeding trucks.</p>
+              <p class="card-text tripleDotLong">Louis Creed, a doctor from Chicago, is appointed director of the University of Maine's campus health service. He moves to a large house near the small town of Ludlow with his wife Rachel, their two young children, Ellie and Gage, and Ellie's cat, Church. From the moment they arrive, the family runs into trouble: Ellie hurts her knee after falling off a swing, and Gage is stung by a bee. Their new neighbor, an elderly man named Jud Crandall, comes to help. He warns Louis and Rachel about the highway that runs past their house; it is constantly used by speeding trucks.</p>
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-warning">Find Out More!</a>
@@ -143,7 +121,7 @@
             <img class="card-img-top" src='{% static "img/book_2.jpg" %}' alt="The Rings of Saturn">
             <div class="card-body">
               <h4 class="card-title">Recomended</h4>
-              <p class="card-text tripleDot">Lucky Starr and the Rings of Saturn is the final novel in the Lucky Starr series, six juvenile science fiction novels by Isaac that originally appeared under the pseudonym Paul French. The novel was first published by Doubleday & Company in 1958</p>
+              <p class="card-text tripleDotLong">Lucky Starr and the Rings of Saturn is the final novel in the Lucky Starr series, six juvenile science fiction novels by Isaac that originally appeared under the pseudonym Paul French. The novel was first published by Doubleday & Company in 1958</p>
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-warning">Find Out More!</a>
@@ -155,8 +133,8 @@
           <div class="card">
             <img class="card-img-top" src='{% static "img/book_3.jpg" %}' alt="Dragons of Eden">
             <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text tripleDot">The Dragons of Eden: Speculations on the Evolution of Human Intelligence is a 1977 book by Carl Sagan, in which the author combines the fields of anthropology, evolutionary biology, psychology, and computer science to give a perspective on how human intelligence may have evolved</p>
+              <h4 class="card-title">Trending</h4>
+              <p class="card-text tripleDotLong">The Dragons of Eden: Speculations on the Evolution of Human Intelligence is a 1977 book by Carl Sagan, in which the author combines the fields of anthropology, evolutionary biology, psychology, and computer science to give a perspective on how human intelligence may have evolved</p>
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-warning">Find Out More!</a>
@@ -168,8 +146,8 @@
           <div class="card">
             <img class="card-img-top" src='{% static "img/book_4.jpg" %}' alt="Bleeding Blue and Gray">
             <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text tripleDot">A landmark chronicle of Civil War medicine, Bleeding Blue and Gray is a major contribution to our understanding of America’s bloodiest conflict. Indeed, eminent surgeon and medical historian Ira M. Rutkow argues that it is impossible to grasp the harsh realities of the Civil War withou</p>
+              <h4 class="card-title">Because you read</h4><h6 class="card-title">This Is Going to Hurt</h6>
+              <p class="card-text tripleDotShort">A landmark chronicle of Civil War medicine, Bleeding Blue and Gray is a major contribution to our understanding of America’s bloodiest conflict. Indeed, eminent surgeon and medical historian Ira M. Rutkow argues that it is impossible to grasp the harsh realities of the Civil War withou</p>
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-warning">Find Out More!</a>
@@ -195,17 +173,16 @@
     <script src='{% static "libs/jquery/jquery.min.js" %}'></script>
     <script src='{% static "libs/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
     <script>
-      $(document).ready(function(e){
-        $('.search-panel .dropdown-menu').find('a').click(function(e) {
-        e.preventDefault();
-        var param = $(this).attr("href").replace("#","");
-        var concept = $(this).text();
-        $('.search-panel span#search_concept').text(concept);
-        $('.input-group #search_param').val(param);
+    $(document).ready(function(e){
+      $('.search-panel .dropdown-menu').find('a').click(function(e) {
+      e.preventDefault();
+      var param = $(this).attr("href").replace("#","");
+      var concept = $(this).text();
+      $('.search-panel span#search_concept').text(concept);
+      $('.input-group #search_param').val(param);
       });
     });
-    </script>
-
+  </script>
   </body>
 
 </html>
