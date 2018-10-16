@@ -48,22 +48,20 @@
 {% endblock %}
 {% block content %}
     <header class="jumbotron my-4">
-    <!-- Page Heading -->
-        <h1 class="display-3 centerText">My Books</h1>
-        <p class="lead centerText">Books I can loan.</p>
+        <h1 class="display-3 centerText">My Rentals</h1>
+        <p class="lead centerText">Books I am reading.</p>
     </header>
-
         <!-- Project Two -->
         {% load app_customs %}
-        {% for book in myBooks %}
+        {% for rental in myRentals %}
             <div class="row cardContainer">
               <div class="col-md-3">
                 <a href="#">
-                  <img class="img-fluid rounded mb-3 mb-md-0 center" src="{{ book.cover.url }}" alt="">
+                  <img class="img-fluid rounded mb-3 mb-md-0 center" src="{{ rental.book.cover.url }}" alt="">
                 </a>
               </div>
               <div class="col-md-5">
-                <h2>{{ book.title }}</h2>
+                <h2>{{ rental.book.title }}</h2>
                 <div class="row starsContainer">
                     {% for i in stars %}
                         {% if i <= ratings|get_item:book.book_id  %}
@@ -81,8 +79,8 @@
               </div >
               <div class="rightContainer">
                   <div class="center">
-                    <a href="{% url 'description' book.book_id %}" class="btn btn-primary btn-lg button">View</a>
-                    <button type="button" class="btn btn-danger btn-lg button">Delete</button>
+                    <a href="{% url 'description' rental.book.book_id %}" class="btn btn-primary btn-lg button">View</a>
+                    <button type="button" class="btn btn-danger btn-lg button">Return</button>
                   </div>
               </div>
 

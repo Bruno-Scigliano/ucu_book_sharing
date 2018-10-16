@@ -19,12 +19,17 @@ class Genre(models.Model):
         return self.name
 
 class Book(models.Model):
+    STATUS_CHOICES = (
+        ('Free', 'Free'),
+        ('Loaned', 'Loaned'),
+    )
+
     book_id      = models.AutoField(primary_key=True)
     title        = models.CharField(max_length=200)
     genre        = models.ManyToManyField(Genre)
     author       = models.CharField(max_length=200)
     description  = models.CharField(max_length=2000)
-    status       = models.CharField(max_length=30)
+    status       = models.CharField(max_length=30, choices=STATUS_CHOICES)
     condition    = models.CharField(max_length=30)
     cover        = CloudinaryField('image')
     release_date = models.DateTimeField()

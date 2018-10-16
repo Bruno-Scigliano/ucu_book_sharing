@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Book, User, BookOwner
+from .models import Book, BookOwner, Loan
 import random
 
 # Create your views here.
@@ -36,3 +36,12 @@ def myBooks(request):
     myBooks = Book.objects.filter(owner=owner)
     ratings = {1:1,2:2,3:3,4:4} #TODO trarse bien las estreallas
     return render(request, 'myBooks.html',{'myBooks':myBooks, 'ratings':ratings, 'stars':range(1,6)})
+
+
+@login_required(login_url='/accounts/login/')
+def myRentals(request):
+    user = request.user
+    client = BookOwner.objects.get(pk=user.pk)
+    myRentals = Loan.objects.filter(client=client).values_list('book')
+    ratings = {1:1,2:2,3:3,4:4} #TODO trarse bien las estreallas
+    return render(request, 'myRentals.html',{'myRentals': myRentals, 'ratings':ratings, 'stars':range(1,6)})
