@@ -50,7 +50,7 @@
 
       <!-- Jumbotron Header -->
       <header class="jumbotron my-4">
-        <h1 class="display-3 centerText">Welcome USERNAME!</h1>
+        <h1 class="display-3 centerText">Welcome {{ user.username }}</h1>
         <p class="lead centerText">More Than 750,948 Books Over Here.</p>
         <div class="container">
             <div class="row">    
@@ -104,7 +104,7 @@
               <p class="card-text tripleDotLong">{{ botd.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="{% url 'description' botd.book_id %}" class="btn btn-warning">Find Out More!</a>
+              <a href="" class="btn btn-warning">Find Out More!</a>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@
               <p class="card-text tripleDotLong">{{ recomended.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="{% url 'description' bur.book_id %}" class="btn btn-warning">Find Out More!</a>
+              <a href="" class="btn btn-warning">Find Out More!</a>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@
               <p class="card-text tripleDotLong">{{ trending.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="{% url 'description' trending.book_id %}" class="btn btn-warning">Find Out More!</a>
+              <a href="" class="btn btn-warning">Find Out More!</a>
             </div>
           </div>
         </div>
@@ -143,7 +143,7 @@
               <p class="card-text tripleDotShort">{{ bur.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="{% url 'description' bur.book_id %}" class="btn btn-warning">Find Out More!</a>
+              <a href="" class="btn btn-warning">Find Out More!</a>
             </div>
           </div>
         </div>

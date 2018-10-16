@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Book, User
@@ -7,14 +8,15 @@ import random
 from django.template import loader
 
 
+@login_required(login_url='/accounts/login/')
 def index(request):
     books = Book.objects.all()
-    context = {}
-    context['botd'] = books[0]
-    context['recomended'] = books[1]
-    context['trending'] = books[2]
-    context['bur'] = books[3]
-    context['burThis'] = books[0].title
+    context = {'user': request.user}
+    # context['botd'] = books[0]
+    # context['recomended'] = books[1]
+    # context['trending'] = books[2]
+    # context['bur'] = books[3]
+    # context['burThis'] = books[0].title
 
     return render(request, 'index.html', context)
 
