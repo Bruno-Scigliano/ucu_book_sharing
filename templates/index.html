@@ -1,59 +1,14 @@
+
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Amazon 2 - Electric Bookaloo</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel='stylesheet' href='{% static "libs/custom/css/heroic-features.css" %}'>
-    <link rel='stylesheet' href='{% static "libs/bootstrap/css/bootstrap.min.css" %}'>
-    <link rel='stylesheet' href='{% static "libs/custom/css/custom.css" %}'>
-
-  </head>
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#"> <img class="card-img-top logoImg" src='{% static "img/logo.png" %}' alt="Pet Sematary"></a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">My Books</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Rentals</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-
-      <!-- Jumbotron Header -->
+{% block content %}
+    <!-- Jumbotron Header -->
       <header class="jumbotron my-4">
         <h1 class="display-3 centerText">Welcome {{ user.username }}</h1>
         <p class="lead centerText">More Than 750,948 Books Over Here.</p>
         <div class="container">
-            <div class="row">    
+            <div class="row">
                 <div class="col-md-12 col-xs-offset-2">
                 <div class="input-group">
                         <div class="input-group-btn search-panel">
@@ -79,7 +34,7 @@
                               <li><a class="dropdown-item" href="#">Biographies</a></li>
                             </ul>
                         </div>
-                        <input type="hidden" name="search_param" value="all" id="search_param">         
+                        <input type="hidden" name="search_param" value="all" id="search_param">
                         <input type="text" class="form-control" name="x" placeholder="Find a Book...">
                         <span class="input-group-btn">
                             <button class="flatLeftButton btn btn-warning" type="button"><img src='{% static "icons/magnifier.png" %}'><span class="glyphicon glyphicon-search"></span></button>
@@ -150,32 +105,4 @@
 
       </div>
       <!-- /.row -->
-
-    </div>
-    <!-- /.container -->
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; UCU 2018</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src='{% static "libs/jquery/jquery.min.js" %}'></script>
-    <script src='{% static "libs/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
-    <script>
-    $(document).ready(function(e){
-      $('.search-panel .dropdown-menu').find('a').click(function(e) {
-      e.preventDefault();
-      var param = $(this).attr("href").replace("#","");
-      var concept = $(this).text();
-      $('.search-panel span#search_concept').text(concept);
-      $('.input-group #search_param').val(param);
-      });
-    });
-  </script>
-  </body>
-
-</html>
+{% endblock %}

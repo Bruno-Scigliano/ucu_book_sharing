@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Book, User
+from .models import Book, User, BookOwner
 import random
 
 # Create your views here.
@@ -10,7 +10,9 @@ from django.template import loader
 
 @login_required(login_url='/accounts/login/')
 def index(request):
-    books = Book.objects.all()
+    user = request.user
+    owner = BookOwner.objects.get(pk=user.pk)
+    books = Book.objects.filter(owner=owner)
     context = {'user': request.user}
     # context['botd'] = books[0]
     # context['recomended'] = books[1]
@@ -26,8 +28,11 @@ def description(request, id=None):
     rating = 5
     return render(request, 'description.html', {'book': book})
 
+
+@login_required(login_url='/accounts/login/')
 def myBooks(request):
-    user = User.objects.all()[0] #TODO Traerse el usuario
-    myBooks = Book.objects.filter(owner=user)
+    user = request.user
+    owner = BookOwner.objects.get(pk=user.pk)
+    myBooks = Book.objects.filter(owner=owner)
     ratings = {1:1,2:2,3:3,4:4} #TODO trarse bien las estreallas
     return render(request, 'myBooks.html',{'myBooks':myBooks, 'ratings':ratings, 'stars':range(1,6)})
