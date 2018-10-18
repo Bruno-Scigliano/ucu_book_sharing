@@ -31,7 +31,7 @@ class Book(models.Model):
     description  = models.CharField(max_length=2000)
     status       = models.CharField(max_length=30, choices=STATUS_CHOICES)
     condition    = models.CharField(max_length=30)
-    cover        = CloudinaryField('image')
+    cover        = CloudinaryField('image', blank=True)
     release_date = models.DateTimeField()
     owner        = models.ForeignKey('BookOwner', on_delete=models.CASCADE)
 

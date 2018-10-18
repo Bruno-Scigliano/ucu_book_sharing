@@ -42,6 +42,6 @@ def myBooks(request):
 def myRentals(request):
     user = request.user
     client = BookOwner.objects.get(pk=user.pk)
-    myRentals = Loan.objects.filter(client=client).values_list('book')
+    myRentals = Loan.objects.filter(client=client)
     ratings = {1:1,2:2,3:3,4:4} #TODO trarse bien las estreallas
     return render(request, 'myRentals.html',{'myRentals': myRentals, 'ratings':ratings, 'stars':range(1,6)})

@@ -64,7 +64,7 @@
                 <h2>{{ rental.book.title }}</h2>
                 <div class="row starsContainer">
                     {% for i in stars %}
-                        {% if i <= ratings|get_item:book.book_id  %}
+                        {% if i <= ratings|get_item:rental.book.book_id  %}
                             <span class="text-warning">
                                 <span style="font-size: x-large; ">&#9733; </span>
                             </span>
@@ -75,7 +75,7 @@
                         {% endif %}
                     {% endfor %}
                 </div>
-                <p>{{book.description}}</p>
+                <p>{{rental.book.description}}</p>
               </div >
               <div class="rightContainer">
                   <div class="center">
