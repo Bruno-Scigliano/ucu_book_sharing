@@ -2,12 +2,16 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
+from amazon2.constants import StatusConstants
+
+
 class BookOwner(User):
     class Meta:
         proxy = True
 
     def __str__(self):
         return self.username
+
 
 class Genre(models.Model):
     name = models.CharField(max_length=60, primary_key=True)
@@ -18,10 +22,11 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+
 class Book(models.Model):
     STATUS_CHOICES = (
-        ('Free', 'Free'),
-        ('Loaned', 'Loaned'),
+        (StatusConstants.BOOK_FREE, StatusConstants.BOOK_FREE),
+        (StatusConstants.BOOK_LOANED, StatusConstants.BOOK_LOANED)
     )
 
     book_id      = models.AutoField(primary_key=True)
@@ -40,6 +45,7 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class Loan(models.Model):
     loan_id        = models.AutoField(primary_key=True)
@@ -63,4 +69,18 @@ class Review(models.Model):
       db_table = 'review'
 
 
+class Notification(models.Model):
+    STATUS_CHOICES = (
+        (StatusConstants.NOTIFICATION_NEW, StatusConstants.NOTIFICATION_NEW),
+        (StatusConstants.NOTIFICATION_SEEN, StatusConstants.NOTIFICATION_SEEN)
+    )
 
+    sender = models.ForeignKey('BookOwner', on_delete=models.CASCADE, related_name='sender')
+    recipient = models.ForeignKey('BookOwner', on_delete=models.CASCADE, related_name='recipient')
+    status = models.CharField(max_length=15, choices=STATUS_CHOICES)
+    message = models.CharField(max_length=600)
+    book = models.ForeignKey('Book', blank=True, on_delete=models.CASCADE)
+    time_sent = models.DateTimeField()
+
+    class Meta:
+      db_table = 'notifications'
