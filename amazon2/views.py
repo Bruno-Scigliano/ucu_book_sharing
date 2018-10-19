@@ -14,13 +14,15 @@ from django.template import loader
 def index(request):
     user = request.user
     owner = BookOwner.objects.get(pk=user.pk)
-    books = Book.objects.filter(owner=owner)
+    books = Book.objects.all().exclude(owner=owner)
+    books = Book.objects.all().exclude(owner=owner).order_by('?')[:4]
     context = {'user': request.user}
-    # context['botd'] = books[0]
-    # context['recomended'] = books[1]
-    # context['trending'] = books[2]
-    # context['bur'] = books[3]
-    # context['burThis'] = books[0].title
+    if len(books) == 4:
+        context['botd'] = books[0]
+        context['recomended'] = books[1]
+        context['trending'] = books[2]
+        context['bur'] = books[3]
+        context['burThis'] = books[0].title
 
     return render(request, 'index.html', context)
 
