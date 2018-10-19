@@ -35,3 +35,12 @@ text-align: center;
 .page-content {
   margin-top: 40px;
 }
+
+.badge-notify{
+    background:red;
+    position:relative;
+    height: 17px;
+    width: 19.6px;
+    top: 3px;
+    right: 22px;
+   }
