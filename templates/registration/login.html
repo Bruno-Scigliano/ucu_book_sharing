@@ -1,6 +1,6 @@
 {% load static %}
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static "libs/jquery/jquery.min.js" %}"></script>
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -48,7 +48,7 @@
 
                 <!-- <h3>Sign In</h3> -->
 
-                <img src="../amazon2/static/img/logo.png" style="height:100px; width:350px;">
+                <img src="{% static "img/logo.png" %}" style="height:100px; width:350px;">
 
 				<div class="d-flex justify-content-end social_icon">
 
