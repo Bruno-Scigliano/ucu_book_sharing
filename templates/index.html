@@ -55,7 +55,7 @@
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src="{{ botd.cover.url }}" alt="Pet Sematary">
+            <img class="card-img-top" src="{{ botd.cover.url }}" alt="{{ botd.title }}">
             <div class="card-body">
               <h4 class="card-title">Book of the Day</h4>
               <p class="card-text tripleDotLong">{{ botd.description }}</p>
@@ -81,7 +81,7 @@
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src='{{ trending.cover.url }}' alt="Dragons of Eden">
+            <img class="card-img-top" src='{{ trending.cover.url }}' alt="{{ trending.title }}">
             <div class="card-body">
               <h4 class="card-title">Trending</h4>
               <p class="card-text tripleDotLong">{{ trending.description }}</p>
@@ -94,7 +94,7 @@
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src='{{ bur.cover.url }}' alt="Bleeding Blue and Gray">
+            <img class="card-img-top" src='{{ bur.cover.url }}' alt="{{ bur.title }}">
             <div class="card-body">
               <h4 class="card-title">Because you read</h4><h6 class="card-title">{{ burThis }}</h6>
               <p class="card-text tripleDotShort">{{ bur.description }}</p>
