@@ -91,7 +91,7 @@
         <div class="col-lg-3 page-content">
           <img class="card-img-top img-fluid" src='{{ book.cover.url }}' alt="Book cover">
           <hr>
-          <a href="#" class="btn btn-primary" style="display: flex; justify-content: center;">Request book</a>
+          <a href="#" class="btn btn-primary"  data-toggle="modal" data-target="#bookRequest" style="display: flex; justify-content: center;">Request book</a>
         </div>
         <!-- /.col-lg-3 -->
 
@@ -100,7 +100,7 @@
           <div class="card mt-4">
             <div class="card-body">
               <h3 class="card-title" style="display: inline;">{{ book.title }}</h3>
-              <h6 style="margin-top: 10px;">Owner: <a href="">{{ book.owner.name }}</a> </h5>
+              <h6 style="margin-top: 10px;">Owner: <a href="">{{ book.owner }}</a> </h5>
               <hr>
               <h6>Summary</h6>
               <p class="card-text">{{ book.description }}</p>
@@ -146,6 +146,32 @@
     <h1 id='book-condition' hidden>{{ book_condition }}</h1>
     <h1 id='book-rating' hidden>{{ book_rating }}</h1>
     
+
+    
+    <!-- Modal -->
+    <div class="modal fade" id="bookRequest" role="dialog">
+      <div class="modal-dialog">
+        <form>
+        <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Request Book</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p>Request {{ book.title }} from {{ book.owner }}?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-warning" data-dismiss="modal" value='{{ book_id }}'>Yes</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+      
+
+
     <!-- Bootstrap core JavaScript -->
     <script src='{% static "libs/jquery/jquery.min.js" %}'></script>
     <script src='{% static "libs/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
