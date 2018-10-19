@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
@@ -82,10 +84,10 @@ class Notification(models.Model):
 
     sender = models.ForeignKey('BookOwner', on_delete=models.CASCADE, related_name='sender')
     recipient = models.ForeignKey('BookOwner', on_delete=models.CASCADE, related_name='recipient')
-    status = models.CharField(max_length=15, choices=STATUS_CHOICES)
+    status = models.CharField(max_length=15, choices=STATUS_CHOICES, default=StatusConstants.NOTIFICATION_NEW)
     message = models.CharField(max_length=600)
     book = models.ForeignKey('Book', blank=True, on_delete=models.CASCADE)
-    time_sent = models.DateTimeField()
+    date = models.DateTimeField(default=datetime.now, blank=True)
 
     class Meta:
       db_table = 'notifications'

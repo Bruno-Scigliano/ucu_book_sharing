@@ -91,7 +91,7 @@
         <div class="col-lg-3 page-content">
           <img class="card-img-top img-fluid" src='{{ book.cover.url }}' alt="Book cover">
           <hr>
-          <a href="#" class="btn btn-primary"  data-toggle="modal" data-target="#bookRequest" style="display: flex; justify-content: center;">Request book</a>
+          <a href="#" class="btn btn-primary {% if book.status == 'Loaned' %} disabled {% endif %}"  data-toggle="modal" data-target="#bookRequest" style="display: flex; justify-content: center;">Request book</a>
         </div>
         <!-- /.col-lg-3 -->
 
@@ -151,7 +151,7 @@
     <!-- Modal -->
     <div class="modal fade" id="bookRequest" role="dialog">
       <div class="modal-dialog">
-        <form>
+        <form method="POST" action="{% url 'rent_book' %}" id="request_form">
         <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
@@ -162,8 +162,10 @@
               <p>Request {{ book.title }} from {{ book.owner }}?</p>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-warning" data-dismiss="modal" value='{{ book_id }}'>Yes</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    {% csrf_token %}
+                  <input type="hidden" value="{{ book.book_id }}" name="book_id" />
+                  <button type="submit" class="btn btn-warning" data-dismiss="modal" onclick="$('#request_form').submit()">Yes</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
             </div>
           </div>
         </form>

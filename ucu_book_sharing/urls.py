@@ -26,7 +26,8 @@ urlpatterns = [
     path('search', views.search, name='search'),
     url('myBooks/', views.myBooks, name='myBooks'),
     url('myRentals/', views.myRentals, name='myRentals'),
-    url('myNotifications/', views.my_notifications, name='myNotifications')
+    url('myNotifications/', views.my_notifications, name='myNotifications'),
+    url('rent_book/', views.RentBookView, name='rent_book')
 ]
  
  

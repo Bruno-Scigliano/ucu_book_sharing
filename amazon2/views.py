@@ -1,6 +1,9 @@
+from datetime import datetime
+
 from django.contrib.auth.decorators import login_required
+
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import Q
 from amazon2.constants import StatusConstants
 from .models import Book, BookOwner, Loan, Notification
@@ -77,14 +80,37 @@ def searchResults(request):
     return render(request, 'search-results.html', {})
 
 
- 
-  
- 
- 
- 
- 
- 
- 
-  
- 
- 
+@login_required(login_url='/accounts/login/')
+def my_notifications(request):
+
+    user = request.user
+    client = BookOwner.objects.get(pk=user.pk)
+    new_notifications = Notification.objects.filter(recipient=client, status=StatusConstants.NOTIFICATION_NEW)
+    old_notifications = Notification.objects.filter(recipient=client, status=StatusConstants.NOTIFICATION_SEEN)
+    return render(request, 'myNotifications.html', {
+        'new_notifications': new_notifications, 'old_notifications': old_notifications
+    })
+
+
+@login_required(login_url='/accounts/login/')
+def RentBookView(request):
+    message = ''
+    if request.method == 'POST':
+        book_id = request.POST.get('book_id')
+        if book_id:
+            user = request.user
+            sender = BookOwner.objects.get(pk=user.pk)
+            rental_book = Book.objects.get(book_id=book_id)
+            rental_book.status = StatusConstants.BOOK_LOANED
+            rental_book.save()
+            loan = Loan(
+                genre="what", client=sender, book=rental_book, loan_date=datetime.now(), retrieval_date=datetime.now()
+            )
+            loan.save()
+            notify_message = "{} wants to read {}".format(sender.first_name, rental_book.title)
+            notify = Notification(sender=sender, recipient=rental_book.owner, message=notify_message, book=rental_book)
+            notify.save()
+            message = 'Request Sent!'
+        else:
+            message = 'No book'
+    return redirect('/', message=message)
