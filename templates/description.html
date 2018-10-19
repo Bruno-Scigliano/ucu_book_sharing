@@ -60,7 +60,7 @@
                           <input type="hidden" name="search_param" value="all" id="search_param">         
                           <input type="text" class="form-control" name="x" placeholder="Find a Book...">
                           <span class="input-group-btn">
-                              <button class="flatLeftButton btn btn-warning" type="button"><img src='{% static "icons/magnifier.png" %}'><span class="glyphicon glyphicon-search"></span></button>
+                              <button class="flatLeftButton btn btn-warning {% if book.status == 'Loaned' %} disabled {% endif %}" type="button"><img src='{% static "icons/magnifier.png" %}'><span class="glyphicon glyphicon-search"></span></button>
                           </span>
                       </div>
                   </div>

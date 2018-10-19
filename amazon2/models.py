@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-from amazon2.constants import StatusConstants
+from amazon2.constants import StatusConstants, ConditionConstants
 
 
 class BookOwner(User):
@@ -28,14 +28,19 @@ class Book(models.Model):
         (StatusConstants.BOOK_FREE, StatusConstants.BOOK_FREE),
         (StatusConstants.BOOK_LOANED, StatusConstants.BOOK_LOANED)
     )
+    CONDITION_CHOICES = (
+        (ConditionConstants.BOOK_NEW, ConditionConstants.BOOK_NEW),
+        (ConditionConstants.BOOK_USED, ConditionConstants.BOOK_USED),
+        (ConditionConstants.BOOK_DAMAGED, ConditionConstants.BOOK_DAMAGED)
+    )
 
     book_id      = models.AutoField(primary_key=True)
     title        = models.CharField(max_length=200)
-    genre        = models.ManyToManyField(Genre)
+    genre        = models.ManyToManyField(Genre, related_name="genre")
     author       = models.CharField(max_length=200)
     description  = models.CharField(max_length=2000)
     status       = models.CharField(max_length=30, choices=STATUS_CHOICES)
-    condition    = models.CharField(max_length=30)
+    condition    = models.CharField(max_length=30, choices=CONDITION_CHOICES)
     cover        = CloudinaryField('image', blank=True)
     release_date = models.DateTimeField()
     owner        = models.ForeignKey('BookOwner', on_delete=models.CASCADE)
