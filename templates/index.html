@@ -9,47 +9,49 @@
         <p class="lead centerText">More Than 750,948 Books Over Here.</p>
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-xs-offset-2">
+              <div class="col-md-12 col-xs-offset-2">
+                <form action="/search">
                 <div class="input-group">
-                        <div class="input-group-btn search-panel">
-                            <button type="button" class="flatRightButton btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                              <span id="search_concept">Filter by</span> <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                              <li><a class="dropdown-item" href="#">Book</a></li>
-                              <li><a class="dropdown-item" href="#">Author</a></li>
-                              <li><a class="dropdown-item" href="#">Science fiction</a></li>
-                              <li><a class="dropdown-item" href="#">Fantasy</a></li>
-                              <li><a class="dropdown-item" href="#">Drama</a></li>
-                              <li><a class="dropdown-item" href="#">Action and Adventure</a></li>
-                              <li><a class="dropdown-item" href="#">Romance</a></li>
-                              <li><a class="dropdown-item" href="#">Mystery</a></li>
-                              <li><a class="dropdown-item" href="#">Horror</a></li>
-                              <li><a class="dropdown-item" href="#">Health</a></li>
-                              <li><a class="dropdown-item" href="#">Children’s</a></li>
-                              <li><a class="dropdown-item" href="#">Religion, Spirituality & New Age</a></li>
-                              <li><a class="dropdown-item" href="#">Science</a></li>
-                              <li><a class="dropdown-item" href="#">History</a></li>
-                              <li><a class="dropdown-item" href="#">Comics</a></li>
-                              <li><a class="dropdown-item" href="#">Biographies</a></li>
-                            </ul>
-                        </div>
-                        <input type="hidden" name="search_param" value="all" id="search_param">
-                        <input type="text" class="form-control" name="x" placeholder="Find a Book...">
-                        <span class="input-group-btn">
-                            <button class="flatLeftButton btn btn-warning" type="button"><img src='{% static "icons/magnifier.png" %}'><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
+                    <div class="input-group-btn search-panel">
+                      <!-- <div class="select" id="resizing_select"> -->
+                        <select name="search_param" id="resizing_select">
+                          <option value="">Filtervalue="">Filter by</option>
+                          <option value="book">Book</option>
+                          <option value="sf">Science fiction</option>
+                          <option value="fantasy">Fantasy</option>
+                          <option value="drama">Drama</option>
+                          <option value="action">Action and Adventure</option>
+                          <option value="romance">Romance</option>
+                          <option value="mystery">Mystery</option>
+                          <option value="horror">Horror</option>
+                          <option value="health">Health</option>
+                          <option value="children">Children’s</option>
+                          <option value="religion">Religion, Spirituality & New Age</option>
+                          <option value="science">Science</option>
+                          <option value="history">History</option>
+                          <option value="comics">Comics</option>
+                          <option value="biographies">Biographies</option>
+                        </select>
+                        <select id="width_tmp_select" style="display: none;">
+                          <option id="width_tmp_option"></option>
+                         </select>
+                      <!-- </div> -->
                     </div>
+                    <input type="text" class="form-control" name="q" placeholder="Find a Book...">
+                    <span class="input-group-btn">
+                        <input class="flatLeftButton btn btn-warning" type="image" name="submit" src='{% static "icons/magnifier.png" %}' style="height: 38px;">
+                    </span>
+                  </div>                  
+                </form>
                 </div>
           </div>
         </div>
-
+    
 
 
       </header>
-
-      <!-- Page Features -->
-      <div class="row text-center">
+        <!-- Page Features -->
+        <div class="row text-center">
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
@@ -103,6 +105,7 @@
           </div>
         </div>
 
-      </div>
-      <!-- /.row -->
+        </div>
+        <!-- /.row -->
+
 {% endblock %}

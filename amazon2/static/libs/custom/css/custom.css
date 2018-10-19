@@ -36,3 +36,12 @@ text-align: center;
   margin-top: 40px;
 }
 
+option {
+    background-color: whitesmoke;
+}
+
+select {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    height: 50px;
+}
