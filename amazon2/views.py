@@ -58,3 +58,19 @@ def my_notifications(request):
     return render(request, 'myNotifications.html', {
         'new_notifications': new_notifications, 'old_notifications': old_notifications
     })
+    
+def searchResults(request):
+    return render(request, 'search-results.html', {})
+
+
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
