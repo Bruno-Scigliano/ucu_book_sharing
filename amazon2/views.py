@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Book, BookOwner, Loan
+
+from amazon2.constants import StatusConstants
+from .models import Book, BookOwner, Loan, Notification
 import random
 
 # Create your views here.
@@ -45,3 +47,14 @@ def myRentals(request):
     myRentals = Loan.objects.filter(client=client)
     ratings = {1:1,2:2,3:3,4:4} #TODO trarse bien las estreallas
     return render(request, 'myRentals.html',{'myRentals': myRentals, 'ratings':ratings, 'stars':range(1,6)})
+
+
+@login_required(login_url='/accounts/login/')
+def my_notifications(request):
+    user = request.user
+    client = BookOwner.objects.get(pk=user.pk)
+    new_notifications = Notification.objects.filter(recipient=client, status=StatusConstants.NOTIFICATION_NEW)
+    old_notifications = Notification.objects.filter(recipient=client, status=StatusConstants.NOTIFICATION_SEEN)
+    return render(request, 'myNotifications.html', {
+        'new_notifications': new_notifications, 'old_notifications': old_notifications
+    })

@@ -24,5 +24,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     url(r'^books/(?P<id>\d+)$', views.description, name='description'),
     url('myBooks/', views.myBooks, name='myBooks'),
-    url('myRentals/', views.myRentals, name='myRentals')
+    url('myRentals/', views.myRentals, name='myRentals'),
+    url('myNotifications/', views.my_notifications, name='myNotifications')
 ]

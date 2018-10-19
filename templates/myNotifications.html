@@ -1,0 +1,86 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block extrahead %}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+    <style>
+    .star {
+      height: 30px;
+      width: 30px;
+      margin: 0px 5px;
+    }
+    .starsContainer{
+      margin: 0px
+    }
+    .cardContainer {
+      position: relative;
+      border-style: solid;
+      border-width: 1px;
+      border-color:  rgba(0, 0, 0, .2);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 11px;
+    }
+    .center{
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+
+    }
+    .btn-margin{
+      margin-top: 20px
+    }
+    .rightContainer{
+      position: absolute;
+      right: 4%;
+      top:0px;
+      bottom:0px;
+      width:10%
+    }
+    .button{
+        margin-bottom: 20px;
+        width: 100%
+    }
+  </style>
+{% endblock %}
+{% block content %}
+    <header class="jumbotron my-4">
+    <!-- Page Heading -->
+        <h1 class="display-3 centerText">Notifications</h1>
+    </header>
+        {% for notification in new_notifications %}
+            {{ notification.sender }}: {{ notification.message }}
+        {% endfor %}
+
+        {% for notification in old_notifications %}
+            {{ notification.sender }}: {{ notification.message }}
+        {% endfor %}
+
+      <!-- Pagination -->
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+{% endblock %}
