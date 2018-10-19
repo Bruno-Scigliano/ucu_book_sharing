@@ -17,6 +17,9 @@
     <link rel='stylesheet' href='{% static "libs/custom/css/custom.css" %}'>
     <link rel='stylesheet' href='{% static "libs/custom/css/custom-select.css" %}'>
     <link rel='stylesheet' href='{% static "libs/custom/css/custom.scss" %}'>
+
+    
+    <script src='{% static "libs/jquery/jquery.min.js" %}'></script>
 {% endblock %}
   {% block extrahead %}
   {% endblock %}
@@ -70,22 +73,21 @@
       </div>
       <!-- /.container -->
     </footer>
-{% block scripts %}
-    <!-- Bootstrap core JavaScript -->
-    <script src='{% static "libs/jquery/jquery.min.js" %}'></script>
+  {% block scripts %}
+    <script src='{% static "libs/custom/js/custom-select.js" %}'></script>
     <script src='{% static "libs/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
     <script>
-    $(document).ready(function(e){
-      $('.search-panel .dropdown-menu').find('a').click(function(e) {
-      e.preventDefault();
-      var param = $(this).attr("href").replace("#","");
-      var concept = $(this).text();
-      $('.search-panel span#search_concept').text(concept);
-      $('.input-group #search_param').val(param);
+      $(document).ready(function(e){
+        $('.search-panel .dropdown-menu').find('a').click(function(e) {
+        e.preventDefault();
+        var param = $(this).attr("href").replace("#","");
+        var concept = $(this).text();
+        $('.search-panel span#search_concept').text(concept);
+        $('.input-group #search_param').val(param);
+        });
       });
-    });
   </script>
-{% endblock %}
+  {% endblock %}
   </body>
 
 </html>

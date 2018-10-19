@@ -1,6 +1,6 @@
 {% load static %}
-
 <script src="{% static "libs/jquery/jquery.min.js" %}"></script>
+<link rel='stylesheet' href='{% static "libs/custom/css/login.css" %}'>
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -62,13 +62,28 @@
 
 			</div>
 
-			<div class="card-body">
+			<div class="card-body" style=" margin:0 auto;">
 
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <input type="submit" value="Login" class="btn float-right login_btn">
-                    </form>
+					
+				<form method="post">
+					{% csrf_token %} 
+					<div class="input-group" style="margin-top:25px;">
+						<div class="input-group-prepend">
+							<span class="input-group-text flatRightButton" style="width:110px; margin-bottom: 15px;">Username</span>
+						</div>
+						<input class="flatLeftButton textInput" name="username" required="" id="id_username" autofocus="" type="text">
+						<!-- <input type="text" id="id_username" class="form-control"> -->
+					</div>
+
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text flatRightButton" style="width:110px; margin-bottom: 15px;">Password</span>
+						</div>
+						<input class="flatLeftButton textInput" name="password" required="" id="id_password" type="password">
+						<!-- <input type="text" id="id_password" class="form-control"> -->
+					</div>
+					<input type="submit" value="Login"  class="btn float-right login_btn">
+				</form>
 
 			</div>
 

@@ -13,9 +13,8 @@
                 <form action="/search">
                 <div class="input-group">
                     <div class="input-group-btn search-panel">
-                      <!-- <div class="select" id="resizing_select"> -->
-                        <select name="search_param" id="resizing_select">
-                          <option value="">Filtervalue="">Filter by</option>
+                        <select name="search_param" id="resizing_select" class="btn flatRightButton">
+                          <option value="">Filter by</option>
                           <option value="book">Book</option>
                           <option value="sf">Science fiction</option>
                           <option value="fantasy">Fantasy</option>
@@ -34,8 +33,15 @@
                         </select>
                         <select id="width_tmp_select" style="display: none;">
                           <option id="width_tmp_option"></option>
-                         </select>
-                      <!-- </div> -->
+                        </select>
+                        <script>
+                          $(document).ready(function() {
+                            $('#resizing_select').change(function(){
+                                $("#width_tmp_option").html($('#resizing_select option:selected').text());
+                                $(this).width($("#width_tmp_select").width() + 6);
+                            });
+                          });
+                        </script>
                     </div>
                     <input type="text" class="form-control" name="q" placeholder="Find a Book...">
                     <span class="input-group-btn">
