@@ -52,7 +52,15 @@
         <h1 class="display-3 centerText">Notifications</h1>
     </header>
         {% for notification in new_notifications %}
-            {{ notification.sender }}: {{ notification.message }}
+        <div style="padding:10px;">
+          <div class="card">
+            <h5 class="card-header">Notification</h5>
+            <div class="card-body">
+              <h5 class="card-title">{{ notification.sender }}: {{ notification.message }}</h5>
+              <a href="#" class="btn btn-primary">Ok</a>
+            </div>
+          </div>
+        </div>
         {% endfor %}
 
         {% for notification in old_notifications %}

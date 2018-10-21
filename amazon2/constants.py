@@ -6,6 +6,9 @@ class StatusConstants:
     BOOK_LOANED = 'Loaned'
     BOOK_RETURN_PENDING = 'Return Pending'
 
+    LOAN_ONGOING = 'Ongoing'
+    LOAN_CONFIRM_PENDING = 'Confirm Pending'
+    LOAN_FINISHED = 'Finished'
 
 class ConditionConstants:
     BOOK_NEW = 'New'

@@ -27,7 +27,8 @@ urlpatterns = [
     url('myBooks/', views.myBooks, name='myBooks'),
     url('myRentals/', views.myRentals, name='myRentals'),
     url('myNotifications/', views.my_notifications, name='myNotifications'),
-    url('rent_book/', views.RentBookView, name='rent_book')
+    url('rent_book/', views.RentBookView, name='rent_book'),
+    url('return_book/', views.return_book, name='return_book')
 ]
  
  

@@ -56,7 +56,7 @@ class Book(models.Model):
 
 class Loan(models.Model):
     loan_id        = models.AutoField(primary_key=True)
-    genre          = models.CharField(max_length=30)
+    status         = models.CharField(max_length=30)
     loan_date      = models.DateTimeField()
     retrieval_date = models.DateTimeField()
     book           = models.ForeignKey('Book', on_delete=models.CASCADE)

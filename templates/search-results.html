@@ -59,7 +59,7 @@
                             <h6 class="font-weight-bold">Book Status</h6>
                         </div>
                         <div class="col-md-8 align-self-center">
-                            <h5><span class="badge {% if book.condition == 'Available' %} badge-success {% elif book.condition == 'Loaned' %} badge-danger {% else %} badge-warning {% endif %}">{{book.condition}}</span></h5>
+                            <h5><span class="badge {% if book.status == 'Available' %} badge-success {% elif book.status == 'Loaned' %} badge-danger {% else %} badge-warning {% endif %}">{{book.status}}</span></h5>
                         </div>
                     </div>
                     <a href="{% url 'description' book.book_id %}" class="btn btn-primary btn-lg button">View</a>
