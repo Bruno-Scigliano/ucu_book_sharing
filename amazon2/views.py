@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from amazon2.constants import StatusConstants
-from .models import Book, BookOwner, Loan, Notification
+from .models import Book, BookOwner, Loan, Notification, Genre
 import random
 
 # Create your views here.
@@ -31,10 +31,11 @@ def index(request):
 def search(request):
     search_query = request.GET.get('q', None)
     search_param = request.GET.get('search_param', None)
-    books = Book.objects.filter(Q(title__contains=search_query) | Q(author__contains=search_query))
-
-    if search_param and search_param != 'all':
-        books.filter(genre__in=[search_param])
+    if(search_param):
+        genres = Genre.objects.filter(name__iexact=search_param)
+        books = Book.objects.filter((Q(title__contains=search_query) | Q(author__contains=search_query)) & Q(genre__in=genres))
+    else:
+        books = Book.objects.filter(Q(title__contains=search_query) | Q(author__contains=search_query))
     return render(request, 'search-results.html', {'books': books})
 
 

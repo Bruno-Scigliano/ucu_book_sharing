@@ -67,7 +67,9 @@
               <p class="card-text tripleDotLong">{{ botd.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="" class="btn btn-warning">Find Out More!</a>
+              {% if botd %}
+                <a href="{% url 'description' botd.book_id %}" class="btn btn-warning">Find Out More!</a>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -80,7 +82,9 @@
               <p class="card-text tripleDotLong">{{ recomended.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="" class="btn btn-warning">Find Out More!</a>
+              {% if recomended %}
+                <a href="{% url 'description' recomended.book_id %}" class="btn btn-warning">Find Out More!</a>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -93,7 +97,9 @@
               <p class="card-text tripleDotLong">{{ trending.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="" class="btn btn-warning">Find Out More!</a>
+              {% if trending %}
+                <a href="{% url 'description' trending.book_id %}" class="btn btn-warning">Find Out More!</a>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -106,7 +112,9 @@
               <p class="card-text tripleDotShort">{{ bur.description }}</p>
             </div>
             <div class="card-footer">
-              <a href="" class="btn btn-warning">Find Out More!</a>
+              {% if bur %}
+                <a href="{% url 'description' bur.book_id %}" class="btn btn-warning">Find Out More!</a>
+              {% endif %}
             </div>
           </div>
         </div>

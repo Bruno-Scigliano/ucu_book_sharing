@@ -59,7 +59,7 @@
   <div class="col-md-5  pl-0 px-3 rounded">
     <div class="d-flex flex-column">
       <img class="img-fluid rounded" src="{{ book.cover.url }}" alt="">
-      <a href="/books/1" class="btn btn-primary btn-lg mt-1 ">View</a>
+      <a href="{% url 'description' book.book_id %}" class="btn btn-primary btn-lg mt-1 ">View</a>
       <button type="button" class="btn btn-danger btn-lg mt-1">Delete</button>
     </div>
 
