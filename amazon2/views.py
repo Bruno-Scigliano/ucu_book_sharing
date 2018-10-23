@@ -32,10 +32,10 @@ def search(request):
     search_query = request.GET.get('q', None)
     search_param = request.GET.get('search_param', None)
     if(search_param):
-        genres = Genre.objects.filter(name__iexact=search_param)
-        books = Book.objects.filter((Q(title__contains=search_query) | Q(author__contains=search_query)) & Q(genre__in=genres))
+        genres = Genre.objects.filter(pk__iexact=search_param)
+        books = Book.objects.filter((Q(title__icontains=search_query) | Q(author__icontains=search_query)) & Q(genre__in=genres))
     else:
-        books = Book.objects.filter(Q(title__contains=search_query) | Q(author__contains=search_query))
+        books = Book.objects.filter(Q(title__icontains=search_query) | Q(author__icontains=search_query))
     return render(request, 'search-results.html', {'books': books})
 
 

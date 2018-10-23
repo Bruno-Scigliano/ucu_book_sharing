@@ -16,13 +16,13 @@ class BookOwner(User):
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=60, primary_key=True)
-
+    id   = models.CharField(max_length=60, primary_key=True)
+    display_name = models.CharField(max_length=60)
     class Meta:
         db_table = 'genres'
 
     def __str__(self):
-        return self.name
+        return self.display_name
 
 
 class Book(models.Model):
